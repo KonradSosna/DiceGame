@@ -1,0 +1,36 @@
+img {
+	height: 400px;
+}
+
+.wrap {
+	width: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+button {
+	border: none;
+	height: 50px;
+	background-color: black;
+	cursor: pointer;
+	border-radius: 10px;
+	color: white;
+}
+
+button:hover {
+	background-color: gray;
+	color: black;
+}
+
+button:active {
+	background-color: lightgray;
+}

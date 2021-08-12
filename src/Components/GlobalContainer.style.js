@@ -10,7 +10,9 @@ export const GlobalContainer = styled.div`
         padding: 0;
         margin: 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
+        flex-wrap: wrap;
+        font-family: 'Oswald', sans-serif;
 `

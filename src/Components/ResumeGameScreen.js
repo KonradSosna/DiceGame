@@ -2,9 +2,11 @@ import React from 'react'
 
 function ResumeGameScreen(props) {
     return (
-        <div>
-            <button onClick={() => { props.handleResumeGame(true) }}>Wznów</button>
-            <button onClick={() => { props.handleResumeGame(false) }}>Graj od nowa</button>
+        <div className="resumegamescreen">
+            <h1>Do you want </h1>
+            <button onClick={() => { props.handleResumeGame(false) }}>New game</button>
+            <h1>or to</h1>
+            <button onClick={() => { props.handleResumeGame(true) }}>Resume</button>
         </div>
     )
 }

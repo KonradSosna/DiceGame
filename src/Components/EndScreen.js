@@ -2,8 +2,8 @@ import React from 'react'
 
 function EndScreen(props) {
     return (
-        <div>
-                <h1>Koniec Gry</h1>
+        <div className="endscreen">
+                <h1>Game Over</h1>
                 <h1>Your points: {Math.round((props.points + Number.EPSILON) * 100) / 100}</h1>
                 <button onClick={props.handleReset}>Reset</button>
         </div>

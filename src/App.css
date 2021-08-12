@@ -90,6 +90,7 @@ aside {
 
 .resumegamescreen {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 }
 

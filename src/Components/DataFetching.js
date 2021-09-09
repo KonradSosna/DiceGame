@@ -22,7 +22,7 @@ function DataFetching(props) {
             const gameDataLocalStorage = getGameData()
             setGameData(gameDataLocalStorage)
         }
-    }, [])
+    }, [props.resume])
 
     useEffect(() =>{
         setLoading(false)

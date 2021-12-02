@@ -8,8 +8,17 @@ import {
 	TSaveGameData,
 } from '../helpers/localstorage';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { StyledButton } from './style';
-import { Grid } from '@mui/material';
+import { Button, Grid, styled } from '@mui/material';
+
+export const StyledButton = styled(Button)({
+	backgroundColor: 'black',
+	Color: 'white',
+	'&:hover': {
+		backgroundColor: '#6b1010',
+		borderColor: '#0062cc',
+		boxShadow: 'none',
+	},
+});
 
 type TDataFetching = {
 	resume: Boolean;

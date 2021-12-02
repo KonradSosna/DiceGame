@@ -1,19 +1,18 @@
-export const saveGameData = (gameData: TSaveGameData) => {
-	localStorage.setItem('gameData', JSON.stringify(gameData));
-	console.log('gameData', gameData);
-};
-
-type TSaveGameData = {
+export type TSaveGameData = {
 	currNumber: number;
 	history: history[];
-	lastNumber: number;
+	lastNumber: number | null;
 	points: number;
 	roundCount: number;
 };
 
-type history = {
+export type history = {
 	round: number;
-	win: string;
+	win: boolean;
+};
+
+export const saveGameData = (gameData: TSaveGameData) => {
+	localStorage.setItem('gameData', JSON.stringify(gameData));
 };
 
 export const getGameData = () => {

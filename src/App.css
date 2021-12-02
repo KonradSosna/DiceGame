@@ -52,7 +52,7 @@ button:active {
 }
 
 .gameboard {
-	width: 1000px;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;

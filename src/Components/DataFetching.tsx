@@ -8,6 +8,8 @@ import {
 	TSaveGameData,
 } from '../helpers/localstorage';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { StyledButton } from './style';
+import { Grid } from '@mui/material';
 
 type TDataFetching = {
 	resume: Boolean;
@@ -103,64 +105,84 @@ export const DataFetching: React.FC<TDataFetching> = (props) => {
 	return (
 		<>
 			{gameData.roundCount !== 30 ? (
-				<div className="gameboard">
-					<aside className="info">
-						<h1>Round {gameData.roundCount} of 30</h1>
-						<h1>
-							Points:{' '}
-							{Math.round((gameData.points + Number.EPSILON) * 100) / 100}
-						</h1>
-					</aside>
+				<Grid container>
+					<div className="gameboard">
+						<aside className="info">
+							<h1>Round {gameData.roundCount} of 30</h1>
+							<h1>
+								Points:{' '}
+								{Math.round((gameData.points + Number.EPSILON) * 100) / 100}
+							</h1>
+						</aside>
 
-					<main>
-						<h1>Number: {gameData.currNumber}</h1>
-						<h1>Last Number: {gameData.lastNumber}</h1>
-						<div className="dice">
-							{loading ? (
-								<ClipLoader color="#AA0000" loading={loading} size={50} />
-							) : (
-								<Die img={gameData.currNumber} />
-							)}
-						</div>
-						<h3>Next number will be: </h3>
-						<div className="btnbox">
-							<button
-								className="btn"
-								onClick={() => {
-									handleClick(1);
-									setLoading(true);
-								}}
-							>
-								Smaller
-							</button>
-							<button
-								className="btn"
-								onClick={() => {
-									handleClick(2);
-									setLoading(true);
-								}}
-							>
-								Greater
-							</button>
-						</div>
-					</main>
+						<main>
+							<Grid>
+								<h1>Number: {gameData.currNumber}</h1>
+								<h1>Last Number: {gameData.lastNumber}</h1>
+								<div className="dice">
+									{loading ? (
+										<ClipLoader color="#AA0000" loading={loading} size={50} />
+									) : (
+										<Die img={gameData.currNumber} />
+									)}
+								</div>
+								<h3>Next number will be: </h3>
+							</Grid>
 
-					<div className="history">
-						<table>
-							<thead>History:</thead>
-							<tbody>
-								{gameData.history.map((h, index) => {
-									return (
-										<tr key={index}>
-											<td>{h.round}.</td>
-											<td>{h.win ? 'win' : 'no points'}</td>
-										</tr>
-									);
-								})}
-							</tbody>
-						</table>
+							<Grid container spacing={8}>
+								<div className="btnbox">
+									<Grid>
+										<StyledButton
+											variant="contained"
+											onClick={() => {
+												handleClick(1);
+												setLoading(true);
+											}}
+										>
+											Smaller
+										</StyledButton>
+										<StyledButton
+											variant="contained"
+											onClick={() => {
+												handleClick(2);
+												setLoading(true);
+											}}
+										>
+											Greater
+										</StyledButton>
+									</Grid>
+								</div>
+								<div className="btnbox">
+									<Grid>
+										<StyledButton
+											variant="contained"
+											onClick={handleReset}
+											disabled={loading}
+										>
+											Reset
+										</StyledButton>
+									</Grid>
+								</div>
+							</Grid>
+						</main>
+
+						<div className="history">
+							<table>
+								<thead>History:</thead>
+								<tbody>
+									{gameData.history.map((h, index) => {
+										return (
+											<tr key={index}>
+												<td>{h.round}.</td>
+												<td>{h.win ? 'win' : 'no points'}</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
+				</Grid>
 			) : (
 				<EndScreen points={gameData.points} handleReset={handleReset} />
 			)}

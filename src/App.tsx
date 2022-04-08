@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import DataFetching from './Components/DataFetching';
-import { GlobalContainer } from './Components/GlobalContainer.style';
+import DataFetching from './Components/GameScreen/DataFetching';
+import { GlobalContainer } from './utils/GlobalContainer.style';
 import StartScreen from './Components/StartScreen';
 import { gameDataExist, deleteGameData } from './helpers/localstorage';
 import './App.css';

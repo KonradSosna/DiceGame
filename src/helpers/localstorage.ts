@@ -1,12 +1,12 @@
 export type TSaveGameData = {
 	currNumber: number;
-	history: history[];
+	history: historyType[];
 	lastNumber: number | null;
 	points: number;
 	roundCount: number;
 };
 
-export type history = {
+export type historyType = {
 	round: number;
 	win: boolean;
 };

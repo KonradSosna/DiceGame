@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import EndScreen from './EndScreen';
+import EndScreen from '../EndScreen';
 import {
 	getGameData,
 	deleteGameData,
 	saveGameData,
 	TSaveGameData,
-} from '../helpers/localstorage';
+} from '@helpers/localstorage';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { Button, Grid, styled } from '@mui/material';
+import { Button, Grid, styled, Typography } from '@mui/material';
+import History from './History';
 
 export const StyledButton = styled(Button)({
 	backgroundColor: 'black',
@@ -20,11 +21,17 @@ export const StyledButton = styled(Button)({
 	},
 });
 
+const StyledTypograpgy = styled(Typography)({
+	fontSize: '40px',
+	margin: 0,
+	padding: '10px',
+});
+
 type TDataFetching = {
 	resume: Boolean;
 };
 
-export const DataFetching: React.FC<TDataFetching> = (props) => {
+export const DataFetching: React.FC<TDataFetching> = ({ resume }) => {
 	const [loading, setLoading] = useState<boolean>(true);
 
 	const [gameData, setGameData] = useState<TSaveGameData>({
@@ -36,11 +43,11 @@ export const DataFetching: React.FC<TDataFetching> = (props) => {
 	});
 
 	useEffect(() => {
-		if (props.resume) {
+		if (resume) {
 			const gameDataLocalStorage = getGameData();
 			setGameData(gameDataLocalStorage);
 		}
-	}, [props.resume]);
+	}, [resume]);
 
 	useEffect(() => {
 		setLoading(false);
@@ -114,83 +121,62 @@ export const DataFetching: React.FC<TDataFetching> = (props) => {
 	return (
 		<>
 			{gameData.roundCount !== 30 ? (
-				<Grid container>
-					<div className="gameboard">
-						<aside className="info">
-							<h1>Round {gameData.roundCount} of 30</h1>
-							<h1>
-								Points:{' '}
-								{Math.round((gameData.points + Number.EPSILON) * 100) / 100}
-							</h1>
-						</aside>
+				<Grid container className="gameboard">
+					<aside className="info">
+						<h1>Round {gameData.roundCount} of 30</h1>
+						<StyledTypograpgy>
+							Points:
+							{Math.round((gameData.points + Number.EPSILON) * 100) / 100}
+						</StyledTypograpgy>
+					</aside>
 
-						<main>
-							<Grid>
-								<h1>Number: {gameData.currNumber}</h1>
-								<h1>Last Number: {gameData.lastNumber}</h1>
-								<div className="dice">
-									{loading ? (
-										<ClipLoader color="#AA0000" loading={loading} size={50} />
-									) : (
-										<Die img={gameData.currNumber} />
-									)}
-								</div>
-								<h3>Next number will be: </h3>
+					<main>
+						<Grid item>
+							<h1>Number: {gameData.currNumber}</h1>
+							<h1>Last Number: {gameData.lastNumber}</h1>
+							<div className="dice">
+								{loading ? (
+									<ClipLoader color="#AA0000" loading={loading} size={50} />
+								) : (
+									<Die img={gameData.currNumber} />
+								)}
+							</div>
+							<h3>Next number will be: </h3>
+						</Grid>
+
+						<Grid container spacing={2} direction="column" className="btnbox">
+							<Grid item>
+								<StyledButton
+									variant="contained"
+									onClick={() => {
+										handleClick(1);
+										setLoading(true);
+									}}
+								>
+									<Typography>Smaller</Typography>
+								</StyledButton>
+								<StyledButton
+									variant="contained"
+									onClick={() => {
+										handleClick(2);
+										setLoading(true);
+									}}
+								>
+									<Typography>Greater</Typography>
+								</StyledButton>
 							</Grid>
-
-							<Grid container spacing={8}>
-								<div className="btnbox">
-									<Grid>
-										<StyledButton
-											variant="contained"
-											onClick={() => {
-												handleClick(1);
-												setLoading(true);
-											}}
-										>
-											Smaller
-										</StyledButton>
-										<StyledButton
-											variant="contained"
-											onClick={() => {
-												handleClick(2);
-												setLoading(true);
-											}}
-										>
-											Greater
-										</StyledButton>
-									</Grid>
-								</div>
-								<div className="btnbox">
-									<Grid>
-										<StyledButton
-											variant="contained"
-											onClick={handleReset}
-											disabled={loading}
-										>
-											Reset
-										</StyledButton>
-									</Grid>
-								</div>
+							<Grid item>
+								<StyledButton
+									variant="contained"
+									onClick={handleReset}
+									disabled={loading}
+								>
+									<Typography>Reset</Typography>
+								</StyledButton>
 							</Grid>
-						</main>
-
-						<div className="history">
-							<table>
-								<thead>History:</thead>
-								<tbody>
-									{gameData.history.map((h, index) => {
-										return (
-											<tr key={index}>
-												<td>{h.round}.</td>
-												<td>{h.win ? 'win' : 'no points'}</td>
-											</tr>
-										);
-									})}
-								</tbody>
-							</table>
-						</div>
-					</div>
+						</Grid>
+					</main>
+					<History history={gameData.history} />
 				</Grid>
 			) : (
 				<EndScreen points={gameData.points} handleReset={handleReset} />

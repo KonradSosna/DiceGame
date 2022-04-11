@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { historyType } from '@helpers/localstorage';
+import { historyType } from '../../helpers/localstorage';
 
 const History = ({ history }: any) => {
 	return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import IMAGE from '../../public/img/dices.png';
+import IMAGE from '../img/dices.png';
 
 type TStartScreen = {
 	gameStarter: () => void;

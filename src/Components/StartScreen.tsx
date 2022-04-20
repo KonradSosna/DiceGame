@@ -1,4 +1,4 @@
-import IMAGE from '../img/dices.png';
+import IMAGE from 'img/dices.png';
 
 type TStartScreen = {
 	gameStarter: () => void;

@@ -6,7 +6,7 @@ import {
 	deleteGameData,
 	saveGameData,
 	TSaveGameData,
-} from '../helpers/localstorage';
+} from 'helpers/localstorage';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Button, Grid, styled, Typography } from '@mui/material';
 import History from './History';

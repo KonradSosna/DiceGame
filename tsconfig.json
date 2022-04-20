@@ -5,7 +5,8 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "src",
 		"paths": {
-			"@helpers/*": ["helpers/*"]
+			"helpers/*": ["helpers/*"],
+			"img/*": ["img/*"]
 		},
 		"allowJs": true,
 		"skipLibCheck": true,

@@ -9,8 +9,8 @@ module.exports = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
 		alias: {
-			// Helpers: path.resolve(__dirname, 'src/@helpers/'),
-			// Templates: path.resolve(__dirname, 'src/@templates/'),
+			helpers: path.resolve(__dirname, 'src/helpers/'),
+			img: path.resolve(__dirname, 'src/img/'),
 		},
 	},
 	devServer: {

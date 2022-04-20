@@ -1,31 +1,31 @@
 export type TSaveGameData = {
-	currNumber: number;
-	history: historyType[];
-	lastNumber: number | null;
-	points: number;
-	roundCount: number;
-};
+  currNumber: number
+  history: historyType[]
+  lastNumber: number | null
+  points: number
+  roundCount: number
+}
 
 export type historyType = {
-	round: number;
-	win: boolean;
-};
+  round: number
+  win: boolean
+}
 
 export const saveGameData = (gameData: TSaveGameData) => {
-	localStorage.setItem('gameData', JSON.stringify(gameData));
-};
+  localStorage.setItem('gameData', JSON.stringify(gameData))
+}
 
 export const getGameData = () => {
-	if (!gameDataExist) return null;
+  if (!gameDataExist) return null
 
-	const gameStatusJSON = localStorage.getItem('gameData') || '[]';
-	return JSON.parse(gameStatusJSON);
-};
+  const gameStatusJSON = localStorage.getItem('gameData') || '[]'
+  return JSON.parse(gameStatusJSON)
+}
 
 export const gameDataExist = (): boolean => {
-	return localStorage.getItem('gameData') != null;
-};
+  return localStorage.getItem('gameData') != null
+}
 
 export const deleteGameData = () => {
-	localStorage.removeItem('gameData');
-};
+  localStorage.removeItem('gameData')
+}

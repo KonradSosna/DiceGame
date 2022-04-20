@@ -1,24 +1,28 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
 	mode: 'none',
-	entry: {
-		app: path.join(__dirname, 'src', 'index.tsx'),
-	},
+	entry: './src/index.tsx',
 	target: 'web',
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
 		alias: {
-			Helpers: path.resolve(__dirname, 'src/@helpers/'),
-			Templates: path.resolve(__dirname, 'src/@templates/'),
+			// Helpers: path.resolve(__dirname, 'src/@helpers/'),
+			// Templates: path.resolve(__dirname, 'src/@templates/'),
 		},
+	},
+	devServer: {
+		hot: true,
+		port: 3000,
+		historyApiFallback: true,
 	},
 	module: {
 		rules: [
 			{
 				test: /\.(ts|js)x?$/,
-				use: [{ loader: 'babel-loader' }],
+				use: ['babel-loader'],
 				exclude: '/node_modules/',
 			},
 			{
@@ -32,12 +36,13 @@ module.exports = {
 		],
 	},
 	output: {
-		filename: '[name].js',
+		filename: 'bundle.js',
 		path: path.resolve(__dirname, '.', 'dist'),
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, 'public', 'index.html'),
+			template: './src/index.html',
 		}),
+		new ReactRefreshWebpackPlugin(),
 	],
 };

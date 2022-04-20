@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import EndScreen from '../EndScreen';
+import EndScreen from './EndScreen';
 import {
 	getGameData,
 	deleteGameData,
 	saveGameData,
 	TSaveGameData,
-} from '../../helpers/localstorage';
+} from '../helpers/localstorage';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Button, Grid, styled, Typography } from '@mui/material';
 import History from './History';
+// import 'babel-polyfill';
 
 export const StyledButton = styled(Button)({
 	backgroundColor: 'black',

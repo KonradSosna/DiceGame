@@ -9,5 +9,13 @@
 		],
 		"@babel/preset-typescript"
 	],
-	"compact": true
+	"compact": true,
+	"plugins": [
+		[
+			"@babel/plugin-transform-runtime",
+			{
+				"regenerator": true
+			}
+		]
+	]
 }

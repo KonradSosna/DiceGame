@@ -1,4 +1,3 @@
-import React from 'react';
 import IMAGE from '../img/dices.png';
 
 type TStartScreen = {

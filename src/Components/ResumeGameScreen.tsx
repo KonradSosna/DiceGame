@@ -1,5 +1,3 @@
-import React from 'react';
-
 type TResumeGameScreen = {
 	handleResumeGame: (value: boolean) => void;
 };

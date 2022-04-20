@@ -10,7 +10,6 @@ import {
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Button, Grid, styled, Typography } from '@mui/material';
 import History from './History';
-// import 'babel-polyfill';
 
 export const StyledButton = styled(Button)({
 	backgroundColor: 'black',

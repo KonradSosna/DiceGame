@@ -1,5 +1,3 @@
-import React from 'react';
-
 type TEndScreen = {
 	points: number;
 	handleReset: () => void;

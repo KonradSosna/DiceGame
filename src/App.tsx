@@ -6,7 +6,7 @@ import { gameDataExist, deleteGameData } from './helpers/localstorage';
 import './App.css';
 import ResumeGameScreen from './Components/ResumeGameScreen';
 
-function App() {
+const App = () => {
 	const [gameStarted, setGameStarted] = useState(true);
 	const [previouseGameExist, setPreviouseGameExist] = useState(false);
 
@@ -47,6 +47,6 @@ function App() {
 			)}
 		</GlobalContainer>
 	);
-}
+};
 
 export default App;

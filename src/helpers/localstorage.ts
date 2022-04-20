@@ -18,7 +18,7 @@ export const saveGameData = (gameData: TSaveGameData) => {
 export const getGameData = () => {
 	if (!gameDataExist) return null;
 
-	const gameStatusJSON: any = localStorage.getItem('gameData');
+	const gameStatusJSON = localStorage.getItem('gameData') || '[]';
 	return JSON.parse(gameStatusJSON);
 };
 

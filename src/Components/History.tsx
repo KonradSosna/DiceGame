@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import { historyType } from 'helpers/localstorage';
 
-const History = ({ history }: any) => {
+const History = ({ history }: { history: historyType[] }) => {
 	return (
 		<Grid item className="history">
 			<table>

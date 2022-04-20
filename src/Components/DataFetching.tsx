@@ -28,7 +28,7 @@ const StyledTypograpgy = styled(Typography)({
 });
 
 type TDataFetching = {
-	resume: Boolean;
+	resume: boolean;
 };
 
 export const DataFetching: React.FC<TDataFetching> = ({ resume }) => {
@@ -108,7 +108,7 @@ export const DataFetching: React.FC<TDataFetching> = ({ resume }) => {
 		deleteGameData();
 	};
 
-	const Die = ({ img }: any) => {
+	const Die = ({ img }: { img: number }) => {
 		return (
 			<img
 				className="dice"

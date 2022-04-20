@@ -24,7 +24,8 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"dev": "webpack-dev-server --mode=development",
-		"prd": "webpack-dev-server --mode=production"
+		"prd": "webpack-dev-server --mode=production",
+		"lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\""
 	},
 	"eslintConfig": {
 		"extends": [
@@ -53,9 +54,17 @@
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^18.0.0",
 		"@types/styled-components": "^5.1.24",
+		"@typescript-eslint/eslint-plugin": "^5.20.0",
+		"@typescript-eslint/parser": "^5.20.0",
 		"babel-loader": "^8.2.4",
 		"css-loader": "^6.7.1",
 		"esbuild": "^0.14.32",
+		"eslint": "^8.13.0",
+		"eslint-plugin-eslint-comments": "^3.2.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-react": "^7.29.4",
+		"eslint-plugin-react-hooks": "^4.4.0",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
 		"path": "^0.12.7",

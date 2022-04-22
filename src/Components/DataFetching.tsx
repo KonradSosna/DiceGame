@@ -31,6 +31,16 @@ type TDataFetching = {
   resume: boolean
 }
 
+export const isCorrectChoice = (
+  lastNumber: number,
+  currNumber: number,
+  a: number
+) => {
+  return (
+    (lastNumber < currNumber && a === 2) || (lastNumber > currNumber && a === 1)
+  )
+}
+
 export const DataFetching: React.FC<TDataFetching> = ({ resume }) => {
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -84,17 +94,6 @@ export const DataFetching: React.FC<TDataFetching> = ({ resume }) => {
       history,
       roundCount,
     })
-  }
-
-  const isCorrectChoice = (
-    lastNumber: number,
-    currNumber: number,
-    a: number
-  ) => {
-    return (
-      (lastNumber < currNumber && a === 2) ||
-      (lastNumber > currNumber && a === 1)
-    )
   }
 
   const handleReset = () => {

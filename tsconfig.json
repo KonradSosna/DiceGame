@@ -1,25 +1,25 @@
 {
-	"compilerOptions": {
-		"target": "ES6",
-		"module": "ESNext",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"baseUrl": "src",
-		"paths": {
-			"helpers/*": ["helpers/*"],
-			"img/*": ["img/*"]
-		},
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx"
-	},
-	"include": ["src", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "src",
+    "paths": {
+      "helpers/*": ["helpers/*"],
+      "img/*": ["img/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
 }

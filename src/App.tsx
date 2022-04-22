@@ -10,10 +10,6 @@ const App = () => {
   const [gameStarted, setGameStarted] = useState(true)
   const [previouseGameExist, setPreviouseGameExist] = useState(false)
 
-  const gameStarter = () => {
-    setGameStarted(false)
-  }
-
   useEffect(() => {
     if (gameDataExist()) setPreviouseGameExist(true)
   }, [])
@@ -39,7 +35,7 @@ const App = () => {
       ) : (
         <>
           {gameStarted ? (
-            <StartScreen gameStarter={gameStarter} />
+            <StartScreen gameStarter={() => setGameStarted(false)} />
           ) : (
             <DataFetching resume={false} />
           )}

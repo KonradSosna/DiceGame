@@ -21,7 +21,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.js --open",
     "build": "webpack --config webpack.config.js",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "dev": "webpack-dev-server --mode=development",
     "prd": "webpack-dev-server --mode=production",

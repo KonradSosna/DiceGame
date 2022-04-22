@@ -1,10 +1,11 @@
-import { render } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from '../App'
 import { isCorrectChoice } from '../Components/DataFetching'
 import ResumeGameScreen from 'Components/ResumeGameScreen'
 import EndScreen from 'Components/EndScreen'
-import History from 'Components/History'
+
+afterEach(() => cleanup())
 
 test('renders welcome page', () => {
   const { getByText } = render(<App />)
@@ -18,6 +19,7 @@ test('calculate correct choice', () => {
 })
 
 test('renders resume screen', () => {
+  //eslint-disable-next-line @typescript-eslint/no-empty-function
   const { getByText } = render(<ResumeGameScreen handleResumeGame={() => {}} />)
   expect(getByText('Reload the previous game?')).toBeInTheDocument()
   expect(getByText('YES')).toBeInTheDocument()
@@ -25,6 +27,7 @@ test('renders resume screen', () => {
 })
 
 test('renders end screen', () => {
+  //eslint-disable-next-line @typescript-eslint/no-empty-function
   const { getByText } = render(<EndScreen points={2} handleReset={() => {}} />)
   expect(getByText('Game Over')).toBeInTheDocument()
   expect(getByText('Your points: 2')).toBeInTheDocument()

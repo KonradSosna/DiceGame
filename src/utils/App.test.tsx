@@ -4,6 +4,7 @@ import App from '../App'
 import { isCorrectChoice } from '../Components/DataFetching'
 import ResumeGameScreen from 'Components/ResumeGameScreen'
 import EndScreen from 'Components/EndScreen'
+import validJSON from '../../__mocks__/APImockData.json'
 
 afterEach(() => cleanup())
 
@@ -32,4 +33,16 @@ test('renders end screen', () => {
   expect(getByText('Game Over')).toBeInTheDocument()
   expect(getByText('Your points: 2')).toBeInTheDocument()
   expect(getByText('Reset')).toBeInTheDocument()
+})
+
+test('api fetch data', () => {
+  jest.spyOn(global, 'fetch').mockImplementation(
+    () =>
+      Promise.resolve({
+        json: () => Promise.resolve(validJSON),
+        //eslint-disable-next-line @typescript-eslint/no-explicit-any
+      }) as any
+  )
+
+  jest.resetAllMocks()
 })
